@@ -1,19 +1,60 @@
 <!DOCTYPE html>
-<html>
-<head lang="el">
+<html lang="el">
+<head>
     <meta charset="UTF-8">
-    <title>My Atari Emulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atari 2600 Emulator</title>
     <style>
-        body { margin: 0; background: #111; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        #emulator-container {
+            width: 640px;
+            height: 480px;
+            background: #000;
+            border: 4px solid #333;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .instructions {
+            margin-top: 20px;
+            text-align: center;
+            max-width: 600px;
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Φορτώνει τον emulator σε πλήρες παράθυρο -->
-    <div id="javatari"></div>
+    <h1>Atari 2600 Emulator</h1>
+    
+    <!-- Αυτόνομο iframe που τρέχει τον emulator απευθείας από official CDN χωρίς να χρειάζεται δικά σου αρχεία κώδικα -->
+    <div id="emulator-container">
+        <iframe src="https://javatari.org" allowfullscreen></iframe>
+    </div>
 
-    <!-- Σύνδεση με τα αρχεία του emulator που βρίσκονται στον φάκελο public -->
-    <script src="public/javatari.js"></script>
+    <div class="instructions">
+        <p><strong>Οδηγίες:</strong> Κάνε Drag & Drop το αρχείο του παιχνιδιού σου (ROM σε μορφή .bin) μέσα στο μαύρο παράθυρο για να ξεκινήσει.</p>
+        <p><strong>Χειρισμός:</strong> Βέλη (Κίνηση) | Alt / Ctrl / Space (Κουμπί Fire) | F1 (Reset) | F2 (Select)</p>
+    </div>
 
 </body>
 </html>
